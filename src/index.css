@@ -5,9 +5,57 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to right,#2E51A2,#1B7AC2);
+}
+
+html{
+  height:100%;
+  width:100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.inputBox{
+  width: 843px;
+  background: none;
+  border: none;
+  padding: 20px;
+  color:white;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-left: 1px solid rgba(255,255,255,.4);
+  border-top: 1px solid rgba(255,255,255,.4);
+  border-bottom: 1px solid rgba(255,255,255,.4);
+  border-right: none;
+  background-color: rgba(255, 255, 255, 0.05);
+    box-sizing:border-box;
+}
+.inputBox:hover, .inputBox:focus{
+  outline: none;
+}
+.inputBox::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color:white;
+  opacity: 0.6; /* Firefox */
+}
+
+.searchButton{
+  background:none;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-right: 1px solid rgba(255,255,255,.4);
+  border-top: 1px solid rgba(255,255,255,.4);
+  border-bottom: 1px solid rgba(255,255,255,.4);
+  border-left:none;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-sizing:border-box;
+  padding:20px 15px;
+  color:rgba(255,255,255,.8);
+}
+
+.lw1{
+  color:rgba(255, 255, 255, 0.6);
 }
