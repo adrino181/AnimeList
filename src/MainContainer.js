@@ -1,36 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Provider} from 'react-redux'
+import store from './redux/store'
 import {Navbar, Container, Row, Col} from 'react-bootstrap'
-
-const fetchAnimeList = (name, limit=10) => `https://api.jikan.moe/v3/search/anime?q=${name}&limit=${limit}`
-
-const Header = () => {
-  return <>
-  <Navbar expand="lg" sticky="top">
-    <Container>
-      <Row className="justify-content-center w-100">
-        <Col md={10} className="d-flex justify-content-center align-items-center">
-          <input className='inputBox' type="text" placeholder="search for an anime, e.g Naruto"></input>
-          <button className='searchButton'>Go</button>
-        </Col>
-      </Row>
-    </Container>
-  </Navbar>
-  </>
-}
-
-const RequestContainer = () => {
-  return <>
-          <div className="lw1">Requesting:<span style={{color:'white'}}> API Request URL will appear here</span></div>
-        </>
-}
+import Header from './components/header'
+import RequestContainer from './components/requestContainer'
 
 const CardView = () => {
   return <div>Card View</div>
 }
 class MainContainer extends React.Component{
-
   render(){
     return <>
+      <Provider store={store}>
         <Header />
         <Container>
           <Row className="justify-content-center w-100">
@@ -40,6 +21,7 @@ class MainContainer extends React.Component{
             </Col>
           </Row>
         </Container>
+      </Provider>
     </>
   }
 }
