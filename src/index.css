@@ -90,3 +90,31 @@ code {
   align-items: center;
   justify-content: center;
 }
+
+
+.loader{
+    background: linear-gradient(300deg, #2e51a2, #a4cfef);
+    background-size: 400% 400%;
+
+    -webkit-animation: loaderAnimation 4s ease infinite;
+    -moz-animation: loaderAnimation 4s ease infinite;
+    animation: loaderAnimation 4s ease infinite;
+    box-shadow: inset -1px -1px 1px 0px #365eb7;
+    color:white;
+}
+
+@-webkit-keyframes loaderAnimation {
+    0%{background-position:0% 10%}
+    50%{background-position:100% 91%}
+    100%{background-position:0% 10%}
+}
+@-moz-keyframes loaderAnimation {
+    0%{background-position:0% 10%}
+    50%{background-position:100% 91%}
+    100%{background-position:0% 10%}
+}
+@keyframes loaderAnimation {
+    0%{background-position:0% 10%}
+    50%{background-position:100% 91%}
+    100%{background-position:0% 10%}
+}

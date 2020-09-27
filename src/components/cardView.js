@@ -3,8 +3,27 @@ import {connect} from 'react-redux'
 import {Row, Col} from 'react-bootstrap'
 import {fetchList} from '../redux/appAction'
 
-const SingleCard = () => {
-    return <Col></Col>
+const SingleCard = ({img, title}) => {
+    return <Col md={4} className="cardContainer mb-4 pb-2" >
+      <div>
+         <img className="cardImg w-100" src={img} />
+      </div>
+      <div className="cardText">
+        <span>{title}</span>
+      </div>
+    </Col>
+}
+
+const LoadMoreCard = ({fetchMore, loading}) => {
+  const style={
+    cursor:'pointer',
+    minHeight:'300px',
+  }
+  return <Col md={4} style={style} onClick={fetchMore} className="cardContainer mb-4 pb-2" >
+    <div className={`cardText ${loading?'loader':''}`} style={{borderRadius:'8px'}}>
+      <span>{loading?'fetching...' :'Load More'}</span>
+    </div>
+  </Col>
 }
 
 
@@ -14,25 +33,14 @@ const CardView = (props) => {
   }
   const renderContent = () => {
     return <>
-            <Row className="mt-3 pt-2">
+            <Row className="mt-3 pt-2 mb-4">
             {
               props.animeList.map((item, key) =>
-                <Col md={4} className="cardContainer mt-4 pt-2" key={key}>
-                  <div>
-                     <img className="cardImg w-100" src={item.image_url} />
-                  </div>
-                  <div className="cardText">
-                    <span>{item.title}</span>
-                  </div>
-                </Col>
+                  <SingleCard key={key} img={item.image_url} title={item.title} />
                 )
             }
+           {props.loadMore && <LoadMoreCard fetchMore={fetchMore} loading={props.loading}/>}
           </Row>
-          <div className="mb-5">
-             {
-               props.loadMore && <button onClick={()=> fetchMore()}>Load more</button>
-              }
-          </div>
     </>
   }
   return <div>{renderContent()}</div>
@@ -43,7 +51,8 @@ const mapStateToProps = state => {
     animeList:state.animeList,
     prevCount:state.prevCount,
     loadMore:state.loadMore,
-    animeName:state.animeName
+    animeName:state.animeName,
+    loading:state.loading
   }
 }
 
