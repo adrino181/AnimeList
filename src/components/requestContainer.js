@@ -14,18 +14,25 @@ const RequestContainer = (props) => {
   }
 
   return <>
-          <div className="lw1 mt-2">Requesting:
-              <span style={{color:'white'}}>
+          <div className="lw1 mt-2">Requesting :
+              <span className="ml-1" style={{color:'white', display:'inline-block'}}>
                 {renderContent()}
               </span>
           </div>
+          {props.error && <div className="lw1 mt-2">
+              Error :
+              <span className="ml-1" style={{color:'red', display:'inline-block'}}>
+                 No result found
+              </span>
+          </div>}
         </>
 }
 
 const mapStateToProps = state => {
   return {
     loading:state.loading,
-    reqUrl:state.reqUrl
+    reqUrl:state.reqUrl,
+    error:state.error
   }
 }
 

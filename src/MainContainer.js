@@ -12,8 +12,8 @@ class MainContainer extends React.Component{
       <Provider store={store}>
         <Header />
         <Container>
-          <Row className="justify-content-center w-100">
-            <Col md={10}>
+          <Row className="justify-content-center w-100 m-0">
+            <Col md={10} className='p-0'>
               <RequestContainer />
               <CardView />
             </Col>

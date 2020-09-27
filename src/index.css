@@ -22,8 +22,12 @@ code {
   color:rgba(255, 255, 255, 0.6);
 }
 
+.mainNav{
+    background: linear-gradient(to right,#2E51A2,#1B7AC2);
+}
+
 .inputBox{
-  width: 843px;
+  width: 100%;
   background: none;
   border: none;
   padding: 20px;
@@ -117,4 +121,27 @@ code {
     0%{background-position:0% 10%}
     50%{background-position:100% 91%}
     100%{background-position:0% 10%}
+}
+@media screen and (max-width:992px) {
+
+}
+
+@media screen and (max-width:768px) {
+  .cardImg{
+    height: 200px;
+  }
+  .cardText{
+    font-size:1rem;
+    padding:8px 8px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cardImg{
+    height: 200px;
+  }
+  .cardText{
+    font-size:0.8rem;
+    padding:8px 6px;
+  }
 }

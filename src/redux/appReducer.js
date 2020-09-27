@@ -1,11 +1,12 @@
-import {FETCH_ANIME_REQUEST, FETCH_ANIME_SUCCESS} from './actionType'
+import {FETCH_ANIME_REQUEST, FETCH_ANIME_SUCCESS, FETCH_ANIME_FAILURE} from './actionType'
 
 const initialState = {
   loading:false,
   animeList:[],
   reqUrl:'',
   prevCount:0,
-  loadMore:false
+  loadMore:false,
+  error:false,
 }
 
 const appReducer = (state = initialState, action) => {
@@ -23,8 +24,17 @@ const appReducer = (state = initialState, action) => {
         animeList:action.payload,
         prevCount:action.prevCount,
         loadMore:action.loadMore,
-        animeName:action.animeName
+        animeName:action.animeName,
+        error:false
       }
+    case FETCH_ANIME_FAILURE:
+       return {
+         ...state,
+         loading:false,
+         animeList:[],
+         loadMore:false,
+         error:action.error
+       }
     }
   return state
 }

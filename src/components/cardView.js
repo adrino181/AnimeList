@@ -4,7 +4,7 @@ import {Row, Col} from 'react-bootstrap'
 import {fetchList} from '../redux/appAction'
 
 const SingleCard = ({img, title}) => {
-    return <Col md={4} className="cardContainer mb-4 pb-2" >
+    return <Col xs={6} md={4} className="cardContainer mb-4 pb-2" >
       <div>
          <img className="cardImg w-100" src={img} />
       </div>
@@ -19,7 +19,7 @@ const LoadMoreCard = ({fetchMore, loading}) => {
     cursor:'pointer',
     minHeight:'300px',
   }
-  return <Col md={4} style={style} onClick={fetchMore} className="cardContainer mb-4 pb-2" >
+  return <Col md={4} xs={6} style={style} onClick={fetchMore} className="cardContainer mb-4 pb-2" >
     <div className={`cardText ${loading?'loader':''}`} style={{borderRadius:'8px'}}>
       <span>{loading?'fetching...' :'Load More'}</span>
     </div>
