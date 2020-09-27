@@ -4,10 +4,8 @@ import store from './redux/store'
 import {Navbar, Container, Row, Col} from 'react-bootstrap'
 import Header from './components/header'
 import RequestContainer from './components/requestContainer'
+import CardView from './components/cardView'
 
-const CardView = () => {
-  return <div>Card View</div>
-}
 class MainContainer extends React.Component{
   render(){
     return <>

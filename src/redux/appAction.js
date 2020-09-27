@@ -1,32 +1,29 @@
-import {FETCH_USER_REQUEST, FETCH_USER_SUCCESS} from './actionType'
+import {FETCH_ANIME_REQUEST, FETCH_ANIME_SUCCESS} from './actionType'
 import axios from 'axios'
 import {fetchAnimeList} from '../components/urls'
 
-export const fetchUserRequest = () => {
+export const fetchAnimeRequest = () => {
     return {
-      type:FETCH_USER_REQUEST
+      type:FETCH_ANIME_REQUEST
     }
 }
 
-export const fetchUserSuccess = (users) => {
+export const fetchAnimeSuccess = (animeList, reqUrl) => {
   return {
-    type:FETCH_USER_SUCCESS,
-    payload:users
+    type:FETCH_ANIME_SUCCESS,
+    payload:animeList,
+    reqUrl:reqUrl
   }
 }
 
-export const getAction = () => {
-   return {
-     type:'GET_DATA'
-   }
-}
-
-export const fetchList = () => {
+export const fetchList = (animeName, length=10) => {
    return (dispatch) => {
-     axios.get(fetchAnimeList('naruto'))
+     dispatch(fetchAnimeRequest())
+     let reqUrl = fetchAnimeList(animeName, length)
+     axios.get(reqUrl)
       .then(res => {
-         const animeList = res.results
-         dispatch(fetchUserSuccess(animeList))
+         const animeList = res.data.results
+         dispatch(fetchAnimeSuccess(animeList, reqUrl))
       })
    }
 }

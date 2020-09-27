@@ -1,28 +1,24 @@
-import {FETCH_USER_REQUEST, FETCH_USER_SUCCESS} from './actionType'
+import {FETCH_ANIME_REQUEST, FETCH_ANIME_SUCCESS} from './actionType'
 
 const initialState = {
   loading:false,
   animeList:[],
-  currentUrl:'',
+  reqUrl:'',
   currentFetch:0
 }
 
 const appReducer = (state = initialState, action) => {
   switch(action.type){
-    case 'GET_DATA':
-      return {
-        ...state,
-        loading:true
-      }
-    case FETCH_USER_REQUEST:
+    case FETCH_ANIME_REQUEST:
       return{
         ...state,
         loading:true
       }
-    case FETCH_USER_SUCCESS:
+    case FETCH_ANIME_SUCCESS:
       return {
         ...state,
         loading:false,
+        reqUrl:action.reqUrl,
         animeList:action.payload
       }
     }

@@ -7,9 +7,7 @@ import {fetchList} from '../redux/appAction'
 const Header = (props) => {
   const [anime, setAnime] = useState('')
   const handleRequest = () => {
-
-    console.log(props.fetchList())
-    console.log(props.animeList)
+      props.fetchList(anime)
   }
   return <>
   <Navbar expand="lg" sticky="top">
@@ -33,7 +31,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    fetchList:() =>  dispatch(fetchList())
+    fetchList:(animeName) =>  dispatch(fetchList(animeName))
   }
 }
 
