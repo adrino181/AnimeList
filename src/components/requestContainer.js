@@ -14,7 +14,7 @@ const RequestContainer = (props) => {
   }
 
   return <>
-          <div className="lw1">Requesting:
+          <div className="lw1 mt-2">Requesting:
               <span style={{color:'white'}}>
                 {renderContent()}
               </span>

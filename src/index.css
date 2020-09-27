@@ -18,6 +18,9 @@ code {
     monospace;
 }
 
+.lw1{
+  color:rgba(255, 255, 255, 0.6);
+}
 
 .inputBox{
   width: 843px;
@@ -55,10 +58,35 @@ code {
   padding:20px 15px;
   color:rgba(255,255,255,.8);
 }
+.cardImg{
+    height:300px;
+    object-fit:cover;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+}
+
 .searchButton:focus, .searchButton:hover{
   box-shadow: inset 1px -1px 4px 0px #2a496285;
   outline: none;
 }
-.lw1{
-  color:rgba(255, 255, 255, 0.6);
+
+.cardContainer{
+  border-radius:8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardText{
+  color: black;
+  font-weight: bold;
+  background: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 17px 11px;
+  font-size: 1.12em;
+  line-height: 1.2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

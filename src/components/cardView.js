@@ -3,20 +3,25 @@ import {connect} from 'react-redux'
 import {Row, Col} from 'react-bootstrap'
 import {fetchList} from '../redux/appAction'
 
+const SingleCard = () => {
+    return <Col></Col>
+}
+
+
 const CardView = (props) => {
   const fetchMore = () => {
     props.fetchList(props.animeName, props.prevCount+10)
   }
   const renderContent = () => {
     return <>
-            <Row>
+            <Row className="mt-3 pt-2">
             {
-              props.animeList.map(item =>
-                <Col md={3}>
+              props.animeList.map((item, key) =>
+                <Col md={4} className="cardContainer mt-4 pt-2" key={key}>
                   <div>
-                     <img src={item.image_url} />
+                     <img className="cardImg w-100" src={item.image_url} />
                   </div>
-                  <div>
+                  <div className="cardText">
                     <span>{item.title}</span>
                   </div>
                 </Col>
