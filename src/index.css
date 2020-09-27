@@ -55,7 +55,10 @@ code {
   padding:20px 15px;
   color:rgba(255,255,255,.8);
 }
-
+.searchButton:focus, .searchButton:hover{
+  box-shadow: inset 1px -1px 4px 0px #2a496285;
+  outline: none;
+}
 .lw1{
   color:rgba(255, 255, 255, 0.6);
 }

@@ -8,11 +8,14 @@ export const fetchAnimeRequest = () => {
     }
 }
 
-export const fetchAnimeSuccess = (animeList, reqUrl) => {
+export const fetchAnimeSuccess = (animeList, reqUrl,prevCount,loadMore, animeName) => {
   return {
     type:FETCH_ANIME_SUCCESS,
     payload:animeList,
-    reqUrl:reqUrl
+    reqUrl:reqUrl,
+    prevCount:prevCount,
+    animeName:animeName,
+    loadMore:loadMore
   }
 }
 
@@ -23,7 +26,8 @@ export const fetchList = (animeName, length=10) => {
      axios.get(reqUrl)
       .then(res => {
          const animeList = res.data.results
-         dispatch(fetchAnimeSuccess(animeList, reqUrl))
+         const loadMore  = length === animeList.length
+         dispatch(fetchAnimeSuccess(animeList, reqUrl, animeList.length, loadMore, animeName))
       })
    }
 }

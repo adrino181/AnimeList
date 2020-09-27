@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux'
 import {Row, Col} from 'react-bootstrap'
+import {fetchList} from '../redux/appAction'
 
 const CardView = (props) => {
-  console.log(props.animeList)
+  const fetchMore = () => {
+    props.fetchList(props.animeName, props.prevCount+10)
+  }
   const renderContent = () => {
     return <>
             <Row>
             {
               props.animeList.map(item =>
-                <Col md={4}>
+                <Col md={3}>
                   <div>
                      <img src={item.image_url} />
                   </div>
@@ -20,6 +23,11 @@ const CardView = (props) => {
                 )
             }
           </Row>
+          <div className="mb-5">
+             {
+               props.loadMore && <button onClick={()=> fetchMore()}>Load more</button>
+              }
+          </div>
     </>
   }
   return <div>{renderContent()}</div>
@@ -27,9 +35,18 @@ const CardView = (props) => {
 
 const mapStateToProps = state => {
   return {
-    animeList:state.animeList
+    animeList:state.animeList,
+    prevCount:state.prevCount,
+    loadMore:state.loadMore,
+    animeName:state.animeName
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchList:(animeName, length) =>  dispatch(fetchList(animeName, length))
   }
 }
 
 
-export default connect(mapStateToProps)(CardView)
+export default connect(mapStateToProps, mapDispatchToProps)(CardView)

@@ -4,7 +4,8 @@ const initialState = {
   loading:false,
   animeList:[],
   reqUrl:'',
-  currentFetch:0
+  prevCount:0,
+  loadMore:false
 }
 
 const appReducer = (state = initialState, action) => {
@@ -19,7 +20,10 @@ const appReducer = (state = initialState, action) => {
         ...state,
         loading:false,
         reqUrl:action.reqUrl,
-        animeList:action.payload
+        animeList:action.payload,
+        prevCount:action.prevCount,
+        loadMore:action.loadMore,
+        animeName:action.animeName
       }
     }
   return state
