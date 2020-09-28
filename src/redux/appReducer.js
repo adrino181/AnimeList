@@ -7,6 +7,9 @@ const initialState = {
   prevCount:0,
   loadMore:false,
   error:false,
+  showPagination:false,
+  prevPage:0,
+  pagesCount:0
 }
 
 const appReducer = (state = initialState, action) => {
@@ -25,6 +28,9 @@ const appReducer = (state = initialState, action) => {
         prevCount:action.prevCount,
         loadMore:action.loadMore,
         animeName:action.animeName,
+        showPagination:action.showPagination,
+        prevPage:action.prevPage,
+        pagesCount:action.pagesCount,
         error:false
       }
     case FETCH_ANIME_FAILURE:

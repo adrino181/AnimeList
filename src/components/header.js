@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux'
 import {Navbar, Container, Row, Col} from 'react-bootstrap'
-import {fetchAnimeList} from './urls.js'
 import {fetchList} from '../redux/appAction'
 
 const Header = (props) => {

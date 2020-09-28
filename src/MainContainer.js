@@ -5,6 +5,7 @@ import {Navbar, Container, Row, Col} from 'react-bootstrap'
 import Header from './components/header'
 import RequestContainer from './components/requestContainer'
 import CardView from './components/cardView'
+import Pagination from './components/pagination'
 
 class MainContainer extends React.Component{
   render(){
@@ -16,6 +17,7 @@ class MainContainer extends React.Component{
             <Col md={10} className='p-0'>
               <RequestContainer />
               <CardView />
+              <Pagination />
             </Col>
           </Row>
         </Container>

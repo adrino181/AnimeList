@@ -107,6 +107,29 @@ code {
     color:white;
 }
 
+.pagination{
+  flex-wrap: wrap;
+}
+.pagination > li > a {
+  padding: 3px 15px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin:2px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.pagination > .active > a{
+  background:black;
+  color:white
+}
+.pagination > .disabled{
+  display:none;
+}
+
 @-webkit-keyframes loaderAnimation {
     0%{background-position:0% 10%}
     50%{background-position:100% 91%}
@@ -122,9 +145,7 @@ code {
     50%{background-position:100% 91%}
     100%{background-position:0% 10%}
 }
-@media screen and (max-width:992px) {
 
-}
 
 @media screen and (max-width:768px) {
   .cardImg{
@@ -143,5 +164,9 @@ code {
   .cardText{
     font-size:0.8rem;
     padding:8px 6px;
+  }
+  .pagination > li > a{
+    padding: 3px 9px;
+    font-size: 0.8rem;
   }
 }

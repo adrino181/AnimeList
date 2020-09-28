@@ -29,7 +29,7 @@ const LoadMoreCard = ({fetchMore, loading}) => {
 
 const CardView = (props) => {
   const fetchMore = () => {
-    props.fetchList(props.animeName, props.prevCount+10)
+    props.fetchList(props.animeName, props.prevCount+10, props.prevPage)
   }
   const renderContent = () => {
     return <>
@@ -52,13 +52,14 @@ const mapStateToProps = state => {
     prevCount:state.prevCount,
     loadMore:state.loadMore,
     animeName:state.animeName,
-    loading:state.loading
+    loading:state.loading,
+    prevPage:state.prevPage
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchList:(animeName, length) =>  dispatch(fetchList(animeName, length))
+    fetchList:(animeName, length, prevPage) =>  dispatch(fetchList(animeName, length, prevPage))
   }
 }
 
